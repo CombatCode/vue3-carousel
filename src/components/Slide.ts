@@ -38,7 +38,9 @@ export default defineComponent({
     });
 
     const isActive = (): boolean => props.index === currentSlide.value;
-    const isClosest = (): boolean => (props.index + 1) === currentSlide.value || (props.index - 1) === currentSlide.value;
+    const isClosest = (): boolean => {
+      return ((props.index + 1) === currentSlide.value || (props.index - 1) === currentSlide.value);
+    }
     const isVisible = (): boolean => {
       const min = Math.ceil(slidesToScroll.value);
       const max = Math.floor(slidesToScroll.value + config.itemsToShow);
@@ -56,9 +58,10 @@ export default defineComponent({
         'li',
         {
           style: slideStyle.value,
+          order: wrapOrder.value.toString(),
           class: {
             carousel__slide: true,
-            carousel_combat: true,
+            'carousel__slide--order': true,
             'carousel__slide--active': isActive(),
             'carousel__slide--visible': isVisible(),
             'carousel__slide--prev': isPrev(),

@@ -1,5 +1,5 @@
 /**
- * Vue 3 Carousel 0.1.39
+ * Vue 3 Carousel 0.1.40
  * (c) 2022
  * @license MIT
  */
@@ -648,7 +648,9 @@
               };
           });
           const isActive = () => props.index === currentSlide.value;
-          const isClosest = () => (props.index + 1) === currentSlide.value || (props.index - 1) === currentSlide.value;
+          const isClosest = () => {
+              return ((props.index + 1) === currentSlide.value || (props.index - 1) === currentSlide.value);
+          };
           const isVisible = () => {
               const min = Math.ceil(slidesToScroll.value);
               const max = Math.floor(slidesToScroll.value + config.itemsToShow);
@@ -662,9 +664,10 @@
               var _a;
               return vue.h('li', {
                   style: slideStyle.value,
+                  order: wrapOrder.value.toString(),
                   class: {
                       carousel__slide: true,
-                      carousel_combat: true,
+                      'carousel__slide--order': true,
                       'carousel__slide--active': isActive(),
                       'carousel__slide--visible': isVisible(),
                       'carousel__slide--prev': isPrev(),
