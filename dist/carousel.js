@@ -1,5 +1,5 @@
 /**
- * Vue 3 Carousel 0.1.40
+ * Vue 3 Carousel 0.1.41
  * (c) 2022
  * @license MIT
  */
