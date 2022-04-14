@@ -38,6 +38,7 @@ export default defineComponent({
     });
 
     const isActive = (): boolean => props.index === currentSlide.value;
+    const isClosest = (): boolean => (props.index + 1) === currentSlide.value || (props.index - 1) === currentSlide.value;
     const isVisible = (): boolean => {
       const min = Math.ceil(slidesToScroll.value);
       const max = Math.floor(slidesToScroll.value + config.itemsToShow);
@@ -61,6 +62,7 @@ export default defineComponent({
             'carousel__slide--visible': isVisible(),
             'carousel__slide--prev': isPrev(),
             'carousel__slide--next': isNext(),
+            'carousel__slide--closest': isClosest(),
           },
         },
         slots.default?.()
