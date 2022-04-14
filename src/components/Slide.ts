@@ -58,6 +58,7 @@ export default defineComponent({
           style: slideStyle.value,
           class: {
             carousel__slide: true,
+            carousel_combat: true,
             'carousel__slide--active': isActive(),
             'carousel__slide--visible': isVisible(),
             'carousel__slide--prev': isPrev(),
